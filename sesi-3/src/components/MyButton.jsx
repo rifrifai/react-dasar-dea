@@ -1,6 +1,7 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 
-const MyButton = () => {
+const MyButton = (props) => {
   const [count, setCount] = useState(0);
 
   function CountHandler() {
@@ -9,7 +10,9 @@ const MyButton = () => {
 
   return (
     <>
-      <button onClick={CountHandler}>Click Me! {count}</button>
+      <button onClick={() => props.clicked() + CountHandler()}>
+        Click Me! {count}
+      </button>
     </>
   );
 };

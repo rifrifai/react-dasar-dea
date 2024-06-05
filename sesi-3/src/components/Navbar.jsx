@@ -1,4 +1,5 @@
-export default function Navbar() {
+/* eslint-disable react/prop-types */
+export default function Navbar(props) {
   return (
     <>
       <ul>
@@ -10,6 +11,9 @@ export default function Navbar() {
         </li>
         <li>
           <a href="#">Contact</a>
+        </li>
+        <li>
+          <a href="#">{props.navText}</a>
         </li>
       </ul>
     </>
