@@ -29,8 +29,10 @@ const App = () => {
   };
 
   const search = async (e) => {
-    const query = await searchMovie(e);
-    console.info({ query: query });
+    if (e.length > 3) {
+      const query = await searchMovie(e);
+      setPopularMovies(query.results);
+    }
   };
 
   return (
