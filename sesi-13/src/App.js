@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import { useEffect, useState } from "react";
 import "./App.css";
 import { getMovieList, searchMovie } from "./api";
@@ -27,8 +28,9 @@ const App = () => {
     });
   };
 
-  const search = (e) => {
-    console.info({ e });
+  const search = async (e) => {
+    const query = await searchMovie(e);
+    console.info({ query: query });
   };
 
   return (
