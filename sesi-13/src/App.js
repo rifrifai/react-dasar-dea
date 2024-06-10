@@ -5,12 +5,22 @@ import { getMovieList, searchMovie } from "./api";
 
 const App = () => {
   const [popularMovies, setPopularMovies] = useState([]);
-
+  const [isNotif, setIsNotif] = useState(false);
   useEffect(() => {
     getMovieList().then((result) => {
       setPopularMovies(result);
     });
   }, []);
+
+  // nilai default nya tetap di useState(false)
+  const notif = () => {
+    setIsNotif(!isNotif);
+    setTimeout(() => {
+      setIsNotif(!isNotif);
+    }, 3000);
+  };
+
+  console.info({ isNotif });
 
   const PopularMovieList = () => {
     return popularMovies.map((movie, i) => {
@@ -37,6 +47,10 @@ const App = () => {
 
   return (
     <div className="App">
+      {isNotif && <h3>Thank You 💓</h3>}
+      <button onClick={notif} className="btn">
+        {isNotif ? "notifikasi OFF" : "notifikasi ON"}
+      </button>
       <header className="App-header">
         <h1>MovieTecH</h1>
         <input
