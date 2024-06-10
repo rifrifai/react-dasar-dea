@@ -13,11 +13,19 @@ const App = () => {
   }, []);
 
   // nilai default nya tetap di useState(false)
+  // const notif = () => {
+  //   setIsNotif(!isNotif);
+  //   setTimeout(() => {
+  //     setIsNotif(!isNotif);
+  //   }, 3000);
+  // };
+
+  // nilai defaultnya ambil nilai terakhirnya (parent)
   const notif = () => {
     setIsNotif(!isNotif);
     setTimeout(() => {
-      setIsNotif(!isNotif);
-    }, 3000);
+      setIsNotif((x) => !x);
+    }, 1900);
   };
 
   console.info({ isNotif });
